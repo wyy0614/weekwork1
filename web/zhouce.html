@@ -6,6 +6,25 @@
 
     <title>斑斓界</title>
     <style>
+        #bk{
+            height: 500px;
+            width: 500px;
+            /*border: 1px salmon solid;*/
+            margin: auto;
+            position: relative;
+            top:100px;
+        }
+        #xz{
+            position: relative;
+            height:40px;
+            width: 180px;
+            margin-left: 160px;
+        }
+        #ys{
+            height: 40px;
+            width: 130px;
+            margin-left: 185px;
+        }
         .div1{
             float: left;
             width: 50px;
@@ -14,53 +33,62 @@
             margin-left: 10px;
             text-align: center;
             vertical-align: middle;
+            border-radius: 5px;
+
         }
         .div2{
             width: 300px;
             height: 300px;
             border: solid gray 1px;
-            margin-top: 60px;
+            margin-top: 6px;
+            margin-left: 100px;
             color: red;
+        }
+        #sr{
+            margin-left: 104px;
         }
     </style>
     <script src="js/jquery-3.3.1.js"></script>
 
 </head>
 <body>
-<h2>请选择背景颜色</h2>
-<div>
-    <div id="blue" class="div1">蓝色</div>
-    <div id="green" class="div1">绿色</div>
-</div>
-<div class="div2" id="bg"></div>
-<div>输入颜色首字母：
-    <input type="text" name="color">
-</div>
-<script type="text/javascript">
-    alert("欢迎来到斑斓界——流光梦境，请选择自己喜欢的模式");
-    $("#blue").click(function () {
-        $("div.div2").removeAttr("style");
-        $("#bg").css("background-color", "blue");
-        $("#bg").text("蓝色背景");
-    });
+<div id="bk">
+    <div id="xz">
+        <h2>请选择背景颜色</h2>
+    </div>
+    <div id="ys">
+        <div id="blue" class="div1">蓝色</div>
+        <div id="green" class="div1">绿色</div>
+    </div>
+    <div class="div2" id="bg"></div>
+    <div id="sr">输入颜色首字母：
+        <input type="text" name="color">
+    </div>
+    <script type="text/javascript">
+        alert("欢迎来到斑斓界——流光梦境，请选择自己喜欢的模式");
+        $("#blue").click(function () {
+            $("div.div2").removeAttr("style");
+            $("#bg").css("background-color", "blue");
+            $("#bg").text("蓝色背景");
+        });
 
-    $("#green").click(function () {
-        $("div.div2").removeAttr("style");
-        $("div.div2").removeAttr("style");
-        $("#bg").css({"background-color":"green","font-style":"italic","font-weight":"bold"});
-        $("#bg").text("绿色背景");
-    });
-    $("input[name='color']").keypress(function(event){
-        if(event.keyCode == 66){
-            $("#bg").empty();
-            $("#bg").css("background-color","blue");
-        }else if(event.keyCode == 71){
-            $("#bg").empty();
+        $("#green").click(function () {
+            $("div.div2").removeAttr("style");
+            $("div.div2").removeAttr("style");
             $("#bg").css("background-color","green");
-        }
+            $("#bg").text("绿色背景");
+        });
+        $("input[name='color']").keypress(function(event){
+            if(event.keyCode == 66){
+                $("#bg").empty();
+                $("#bg").css("background-color","blue");
+            }else if(event.keyCode == 71){
+                $("#bg").empty();
+                $("#bg").css("background-color","green");
+            }
 
-    });
-
-</script>
+        });
+    </script>
+</div>
 </body>
 </html>

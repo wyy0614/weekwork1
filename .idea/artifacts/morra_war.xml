@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="morra:war">
+    <output-path>$PROJECT_DIR$/morra/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>morra</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="morra.war">
+      <element id="artifact" artifact-name="morra:war exploded" />
+    </root>
+  </artifact>
+</component>

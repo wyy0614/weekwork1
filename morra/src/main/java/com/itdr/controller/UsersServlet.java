@@ -29,6 +29,7 @@ public class UsersServlet extends HttpServlet {
                 register(request,response);
                 break;
             case "login":
+                login(request,response);
                 break;
         }
 
@@ -39,8 +40,7 @@ public class UsersServlet extends HttpServlet {
 
             String uname = request.getParameter("uname");
             String password = request.getParameter("password");
-            System.out.println(uname);
-            System.out.println(password);
+
             Users users = ud.selectByUname(uname);
             if(users != null){
 
@@ -48,9 +48,20 @@ public class UsersServlet extends HttpServlet {
                 int i = ud.insertByUnameAndPassword(uname, password);
                 request.getSession().setAttribute("uname",uname);
             }
-//            request.getRequestDispatcher("login.jsp").forward(request,response);
-            response.sendRedirect("login.jsp");
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+//            response.sendRedirect("index.jsp");
     }
+
+        private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            String uname = request.getParameter("uname");
+            String password = request.getParameter("password");
+            System.out.println(uname);
+            System.out.println(password);
+
+            Users users = ud.selectByUnameAndPassword(uname, password);
+            request.getSession().setAttribute("uname",users.getUname());
+            request.getRequestDispatcher("game.jsp").forward(request,response);
+        }
 
 
 

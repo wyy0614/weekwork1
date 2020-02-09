@@ -5,6 +5,7 @@ import com.itdr.utils.C3P0Util;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
 
@@ -43,6 +44,18 @@ public class UsersDao {
             e.printStackTrace();
         }
         return u;
+    }
+
+    //开始游戏
+    public int startGame(String uname,Integer score){
+        int i =0;
+        String sql = "update users set score = score + ? where uname = ?";
+        try {
+            i = queryRunner.update(sql,uname, score);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 
 

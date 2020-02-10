@@ -46,8 +46,8 @@
     <!--AOP配置-->
     <aop:config>
         <!--切入点-->
-        <aop:pointcut id="update" expression="execution(* com.itdr.dao.IndexDao.update*(..))"></aop:pointcut>
-        <!--配1置切面-->
+        <aop:pointcut id="update" expression="execution(* com.itdr.dao.UserDao.select*(..))"></aop:pointcut>
+        <!--配置切面-->
         <aop:aspect ref="aopDemo">
             <aop:before method="befor" pointcut-ref="update"></aop:before>
         </aop:aspect>

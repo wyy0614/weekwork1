@@ -10,8 +10,8 @@ public class UserController {
     private UserService userService;
 
     //注册
-    public String register(String username, String password){
-        String register = userService.register(username, password);
+    public String register(String username, String password,String shengxiao,int yuefen,String xingzuo){
+        String register = userService.register(username, password,shengxiao,yuefen,xingzuo);
         return register;
     }
 

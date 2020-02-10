@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 
     //注册
     @Override
-    public String register(String username, String password) {
+    public String register(String username, String password,String shengxiao,int yuefen,String xingzuo) {
         //非空判断
         if (username == null || "".equals(username)) {
             return "用户名格式错误";
@@ -23,11 +23,11 @@ public class UserServiceImpl implements UserService {
             return "密码格式错误";
         }
 
-        Integer integer = userDao.selectByName(username);
-        if (integer != 0) {
-            return "用户已经注册";
-        }
-        int i = userDao.InsertByNameAndPassword(username, password);
+//        String s = userDao.selectByName(username);
+//        if (s != null) {
+//            return "用户已经注册";
+//        }
+        int i = userDao.InsertByNameAndPassword(username, password,shengxiao,yuefen,xingzuo);
         if (i == 1) {
             return "注册成功";
         }
@@ -44,8 +44,8 @@ public class UserServiceImpl implements UserService {
         if (password == null || "".equals(password)) {
             return "密码错误";
         }
-        Integer integer = userDao.SelectByNameAndPassword(username, password);
-        if (integer != 0) {
+        String s = userDao.SelectByNameAndPassword(username, password);
+        if (s != null) {
             return "登陆成功";
         }
         return "登陆失败";
@@ -64,8 +64,10 @@ public class UserServiceImpl implements UserService {
             return "错误";
         }
 
-        String s = userDao.SelectByShuxin(shengxiao, yuefen, xingzuo);
-        return s;
+        String s = userDao.SelectByShuxin(shengxiao);
+        String s1 = userDao.SelectByYuefen(yuefen);
+        String s2 = userDao.SelectByXingzuo(xingzuo);
+        return s+s1+s2;
     }
 
 
